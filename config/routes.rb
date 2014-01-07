@@ -1,4 +1,16 @@
 RbfProj::Application.routes.draw do
+  get "customer/new"
+
+  get "customer/create"
+
+  get "customer/update"
+
+  get "customer/destroy"
+
+  get "customer/show"
+
+  get "customer/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
