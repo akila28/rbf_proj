@@ -1,0 +1,34 @@
+<h1>RUBY BENEFIT FUND</h1>
+<h3>Listing all customers </h3>
+<table cellpadding = "5px" cellspacing = "5px">
+  <tr>
+    <th>Name</th>
+    <th>Date of birth</th>
+    <th>sex</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>state</th>
+    <th>pincode</th>
+    <th>PAN</th>
+    <th>status</th>
+  </tr>
+  <% @customers.each do |customer| %>
+    <tr>
+      <td><%= link_to "#{customer.first_name} #{customer.last_name}" , customer_path(customer)%></td>
+      <td><%= customer.date_of_birth%></td>
+      <td><%= customer.address%></td>
+      <td><%= customer.sex%></td>
+      <td><%= customer.city%></td>
+      <td><%= customer.state%></td>
+      <td><%= customer.pincode%></td>
+      <td><%= customer.PAN%></td>
+      <td><%= customer.status%></td>
+      <td><%= link_to "Edit",edit_customer_path(customer)%></td>
+      <td><%= link_to "Delete",customer_path(customer),
+      method: :delete, confirm: "Are You Sure?" %></td>
+    </tr>
+  <% end %>
+</table>
+<br />
+</div>
+<%= link_to "Add customer", new_customer_path %>

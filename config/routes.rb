@@ -1,4 +1,7 @@
 RbfProj::Application.routes.draw do
+  resources :customers
+  get "home/index"
+
   get "customer/new"
 
   get "customer/create"
@@ -60,7 +63,7 @@ RbfProj::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'customers#index'
 
   # See how all your routes lay out with "rake routes"
 
