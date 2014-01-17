@@ -26,9 +26,9 @@ before_save :set_default_val
  end
 
 validates :first_name, presence: true,
-		       format: { with: %r{^[A-Z][a-zA-Z\s]*} }
+		       format: { with: %r{^[a-zA-Z]*} }
 validates :last_name, presence: true,
-		      format: { with: %r{^[A-Z][a-zA-Z\s]*} }
+		      format: { with: %r{^[a-zA-Z]*} }
 
 validates_numericality_of :pincode, presence: true
 validates_length_of :pincode, :is => 6, :wrong_length => "should have 6digits"
