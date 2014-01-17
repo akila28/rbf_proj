@@ -14,6 +14,5 @@ class CreateCustomers < ActiveRecord::Migration
 
       t.timestamps
     end
-    change_column :sex, :sex, :bit
   end
 end
