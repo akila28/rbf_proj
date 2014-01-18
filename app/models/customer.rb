@@ -18,7 +18,7 @@
 #
 
 class Customer < ActiveRecord::Base
-  attr_accessible :PAN, :address, :city, :date_of_birth, :first_name, :last_name, :pincode, :sex, :state, :status
+  attr_accessible :code, :PAN, :address, :city, :date_of_birth, :first_name, :last_name, :pincode, :sex, :state, :status
 
 before_save :set_default_val
  def set_default_val
@@ -39,6 +39,10 @@ validates_length_of :PAN, :is => 10, :wrong_length => "should have 10digits"
 validates_inclusion_of :date_of_birth,
                 :in => Date.civil(1900,1,1)..Date.today,
                  :message => "is invalid"
+
+validates_uniqueness_of :code, presence: true, :wrong_length => "should have 10digits"
+validates_length_of :code, :is =>10, :start_code => 0000000001
+validates :code, numericality: { greater_than_or_equal_to: 0000000001 }
 
 validates :address, presence: true
 validates :sex, presence: true

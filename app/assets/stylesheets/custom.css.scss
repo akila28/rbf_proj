@@ -78,3 +78,34 @@ footer ul li {
   margin-left: 10px;
 }
 
+/* style */
+
+table, td,th
+
+{
+border:2px solid green;
+}
+th
+{
+background-color:#29A8D6;
+color:white;
+}
+h2
+{
+color: #005580
+}
+
+/* line */
+.customer{
+   border-bottom: 2.5px solid rgb(0,136,204);
+}
+
+/* homepage*/
+h5,h4,h3,h2,h1
+{
+font-family: info;
+font-weight: bold;
+line-height: 30px;
+color: info;
+}
+

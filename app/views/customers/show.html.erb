@@ -1,6 +1,9 @@
-<h2>Welcome</h2>
-<h4><%= "#{@customer.first_name} #{@customer.last_name}" %></h4>
-<h4> <%= "age : #{Date.today.year - @customer.date_of_birth.year}" %></h4> 
-  
 
+<h1><%= link_to "Customers", customers_path %></h1>
+<br> </br>
+<h3><span class = "customer"><%= @customer.code %></span></h3>
+<h3><%= "#{@customer.first_name} #{@customer.last_name}" %></h3>
+<h4> <%= "customer age : #{Date.today.year - @customer.date_of_birth.year}" %></h4> 
+  
+<h5><%= link_to"Back", customers_path, class: "btn btn-info" %></h5>
 
