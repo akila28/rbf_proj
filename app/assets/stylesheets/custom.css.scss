@@ -78,7 +78,7 @@ footer ul li {
   margin-left: 10px;
 }
 
-/* style */
+/* table */
 
 table, td,th
 
@@ -90,12 +90,9 @@ th
 background-color:#29A8D6;
 color:white;
 }
-h2
-{
-color: #005580
-}
 
-/* line */
+
+/* customer line */
 .customer{
    border-bottom: 2.5px solid rgb(0,136,204);
 }
@@ -108,4 +105,11 @@ font-weight: bold;
 line-height: 30px;
 color: info;
 }
+ 
+/* h1 */
+h1
+{
+color: #005580;
+}
+
 

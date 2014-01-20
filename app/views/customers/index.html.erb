@@ -1,6 +1,9 @@
 
 <%= will_paginate %>
-<h2>Customers </h2>
+<h1>Customers </h1>
+
+<%= link_to "Add customer", new_customer_path,class: "btn-primary btn" %> 
+<br> </br>
 <table cellpadding = "5px" cellspacing = "5px">
   <tr>
     <th>code</th>
@@ -17,14 +20,14 @@
       <td><%= customer.address%></td>
       <td><span class="label label-success"><%= customer.status%></span></td>
       <td><%= link_to "Edit",edit_customer_path(customer),class: "btn btn-info" %>
-      <%= link_to "Delete",customer_path(customer),class: "btn btn-info",
+      <%= link_to "Delete",customer_path(customer),class: "btn btn-danger",
       method: :delete, confirm: "Are You Sure?" %></td>
     </tr>
   <% end %>
 </table>
 <br />
 </div>
-<%= link_to "Add customer", new_customer_path,class: "btn-primary btn" %>
+
 <%= will_paginate %>
 
 
