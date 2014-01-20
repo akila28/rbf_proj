@@ -7,8 +7,8 @@
     <th>Name</th>
     <th>address</th>
     <th>status</th>
-    <th> </th>
-    <th> </th>
+    <th> E/D</th>
+ 
   </tr>
   <% @customers.each do |customer| %>
     <tr>
@@ -16,8 +16,8 @@
       <td><%= link_to "#{customer.first_name} #{customer.last_name}" , customer_path(customer)%></td>
       <td><%= customer.address%></td>
       <td><span class="label label-success"><%= customer.status%></span></td>
-      <td><%= link_to "Edit",edit_customer_path(customer),class: "btn btn-info" %></td>
-      <td><%= link_to "Delete",customer_path(customer),class: "btn btn-info",
+      <td><%= link_to "Edit",edit_customer_path(customer),class: "btn btn-info" %>
+      <%= link_to "Delete",customer_path(customer),class: "btn btn-info",
       method: :delete, confirm: "Are You Sure?" %></td>
     </tr>
   <% end %>
