@@ -27,7 +27,7 @@ before_save :set_default_val
 
 before_create :increment_code
 def increment_code
-    self.code = (self.class.last.nil?) ? "0" : ((self.class.last.code.to_i) + 0000000001).to_s
+    self.code = (self.class.last.nil?) ? "0" : ((self.class.last.code.to_i) + 1).to_s.rjust(10,'0')
 end
 
 validates :first_name, presence: true,
