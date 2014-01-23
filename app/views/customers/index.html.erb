@@ -1,10 +1,15 @@
 
 
 <h1>Customers </h1>
+<%= form_tag customers_path, :method => 'get'  do %>
+   <%= text_field_tag :search, params[:search], :placeholder => "name or code" %>
+   <%= submit_tag "Search", :first_name => nil, class: "btn btn-primary" %>
+   <%= link_to "New customer", new_customer_path,class: "btn-primary btn" %>
+<% end %>
 
-<%= link_to "Add customer", new_customer_path,class: "btn-primary btn" %> 
-<br> </br>
-<table cellpadding = "5px" cellspacing = "5px">
+ <h6 class= "alert alert-info"><%= page_entries_info @customers %></h6>
+ <br> </br>
+ <table cellpadding = "5px" cellspacing = "5px">
   <tr>
     <th>code</th>
     <th>Name</th>

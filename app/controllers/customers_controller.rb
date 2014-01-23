@@ -1,34 +1,30 @@
 class CustomersController < ApplicationController
  
  def index
-    @customers = Customer.paginate(:order =>"first_name ASC", :page => params[:page], :per_page => 5)
-    respond_to do |format|
-      format.html 
-      format.json { render json: @customers }
-      format.js
-      end
+  @customers = Customer.all
+  @customers = Customer.where("first_name LIKE ? OR last_name LIKE ? OR date_of_birth LIKE ? OR code LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%").paginate(page: params[:page], per_page: 5)
  end 
 
  def new
-    @customer = Customer.new
-  end
+  @customer = Customer.new
+ end
 
-  def create
-   @customer = Customer.new(params[:customer])
-    if @customer.save
+ def create
+  @customer = Customer.new(params[:customer])
+   if @customer.save
       flash[:success] = "Welcome to RBF!"
       redirect_to customer_path(@customer)
     else
       flash[:alert] = "Customer not added"  
       render 'new'
     end
-  end
+ end
 
-  def edit
-    @customer = Customer.find(params[:id])
-  end
+ def edit
+  @customer = Customer.find(params[:id])
+ end
 
-  def update
+ def update
   @customer = Customer.find(params[:id])
   if @customer.update_attributes(params[:customer])
     flash[:success] = "updated successfully"
@@ -37,11 +33,11 @@ class CustomersController < ApplicationController
     flash[:alert] = "failed"
     render 'edit'
   end
-  end
+ end
 
-  def show
+ def show
     @customer = Customer.find(params[:id])
-  end
+ end
  
  def destroy
   @customer = Customer.find(params[:id])
