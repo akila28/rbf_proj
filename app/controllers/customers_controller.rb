@@ -1,8 +1,13 @@
 class CustomersController < ApplicationController
-
+ 
  def index
-    @customers = Customer.paginate(page: params[:page])
-  end 
+    @customers = Customer.paginate(:order =>"first_name ASC", :page => params[:page], :per_page => 5)
+    respond_to do |format|
+      format.html 
+      format.json { render json: @customers }
+      format.js
+      end
+ end 
 
  def new
     @customer = Customer.new

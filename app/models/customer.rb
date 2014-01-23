@@ -18,7 +18,8 @@
 #
 
 class Customer < ActiveRecord::Base
-  attr_accessible :code, :PAN, :address, :city, :date_of_birth, :first_name, :last_name, :pincode, :sex, :state, :status
+  attr_accessible :code, :PAN, :address, :city, :date_of_birth, :first_name, :last_name, :pincode, :sex, :state, :status 
+
 
 before_save :set_default_val
  def set_default_val
@@ -27,7 +28,7 @@ before_save :set_default_val
 
 before_create :increment_code
 def increment_code
-    self.code = (self.class.last.nil?) ? "0" : ((self.class.last.code.to_i) + 1).to_s.rjust(10,'0')
+    self.code = (self.class.last.nil?) ? "0000000001" : ((self.class.last.code.to_i) + 1).to_s.rjust(10,'0')
 end
 
 validates :first_name, presence: true,
