@@ -80,17 +80,19 @@ footer ul li {
 
 /* table */
 
-table, td,th
 
-{
-border:2px solid green;
-}
+
 th
 {
-background-color:#29A8D6;
-color:white;
+border:1px solid #C0C0C0;
+color:blue
 }
 
+td
+{
+border:1px solid #C0C0C0;
+
+}
 
 /* customer line */
 .customer{

@@ -9,12 +9,14 @@
 
  <h6 class= "alert alert-info"><%= page_entries_info @customers %></h6>
  <br> </br>
- <table cellpadding = "5px" cellspacing = "5px">
+
+<table class="table table-striped">
   <tr>
     <th>code</th>
     <th>Name</th>
     <th>address</th>
     <th>status</th>
+    <th>photo</th>
     <th> E/D</th>
  
   </tr>
@@ -24,7 +26,8 @@
       <td><%= link_to "#{customer.first_name} #{customer.last_name}" , customer_path(customer)%></td>
       <td><%= customer.address%></td>
       <td><span class="label label-success"><%= customer.status%></span></td>
-      <td><%= link_to "Edit",edit_customer_path(customer),class: "btn btn-info" %>
+      <td><%= image_tag customer.photo, :size => "50*50", :crop => :fill %></td>
+      <td><%= link_to "Edit",edit_customer_path(customer),class: "btn btn-primary" %>
       <%= link_to "Delete",customer_path(customer),class: "btn btn-danger",
       method: :delete, confirm: "Are You Sure?" %></td>
     </tr>
