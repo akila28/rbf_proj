@@ -1,11 +1,16 @@
-
-
+<div class="offset3 span6">
+  <div align= "right">
+     <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+  </div>
+</div>
+</div>
 <h1>Customers </h1>
 <%= form_tag customers_path, :method => 'get'  do %>
    <%= text_field_tag :search, params[:search], :placeholder => "name or code" %>
    <%= submit_tag "Search", :first_name => nil, class: "btn btn-primary" %>
    <%= link_to "New customer", new_customer_path,class: "btn-primary btn" %>
 <% end %>
+
 
  <h6 class= "alert alert-info"><%= page_entries_info @customers %></h6>
  <br> </br>
@@ -26,7 +31,7 @@
       <td><%= link_to "#{customer.first_name} #{customer.last_name}" , customer_path(customer)%></td>
       <td><%= customer.address%></td>
       <td><span class="label label-success"><%= customer.status%></span></td>
-      <td><%= image_tag customer.photo, :size => "50*50", :crop => :fill %></td>
+      <td><%= image_tag customer.photo, :size => "50x50", :crop => :fill %></td>
       <td><%= link_to "Edit",edit_customer_path(customer),class: "btn btn-primary" %>
       <%= link_to "Delete",customer_path(customer),class: "btn btn-danger",
       method: :delete, confirm: "Are You Sure?" %></td>

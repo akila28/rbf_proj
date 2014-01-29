@@ -18,7 +18,9 @@
 #
 
 class Customer < ActiveRecord::Base
+
   attr_accessible :code, :PAN, :address, :city, :date_of_birth, :first_name, :last_name, :pincode, :sex, :state, :status, :photo
+belongs_to :user
 mount_uploader :photo, PhotoUploader 
 
 

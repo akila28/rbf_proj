@@ -55,15 +55,15 @@
    <div class="span3"> : <%= @customer.PAN %> </div>
    </div>
    </div>
+   <div class="span3">
+   <strong>Photo</strong>
+   </div>  
+   <div class="span3"> : <%= image_tag @customer.photo, :size => "50x50", :crop => :fill %></div>
+   </div>
 </hr>
-
-
-<h5><%= link_to"Back", customers_path, class: "btn btn-info" %></h5>
 <br></br>
-<div><%= image_tag @customer.photo, :size => "50*50", :crop => :fill %></div>
 
-
-
+<%= link_to"Back", customers_path, class: "btn btn-info" %>
 <%= link_to"Edit", edit_customer_path, class: "btn btn-primary" %>
 <%= link_to "Delete",customer_path,class: "btn btn-danger",
       method: :delete, confirm: "Are You Sure?" %>

@@ -1,0 +1,19 @@
+<style>
+.sign_in_header{
+color:rgb(196,60,53);
+}
+
+</style>
+<% if user_signed_in? %>
+
+<br></br>
+<h2><%= link_to "Click here to list all customers", customers_path%></h2>
+<% else %>
+<div class="offset3 span6">
+<h1 class="sign_in_header">Ruby Benefit Fund</h1>
+<br> </br>
+<br><%= link_to "Sign In", new_user_session_path, :method => :get %></br>
+<br><%= link_to "Sign up", new_user_registration_path, :method => :get %></br>
+</div>
+
+<% end %>

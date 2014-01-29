@@ -1,20 +1,26 @@
 RbfProj::Application.routes.draw do
-  resources :customers
+  devise_for :users,:controllers => { :registrations =>'registration'}
+  match 'dashboard' => 'home#dashboard'
+  
+resources :customers
+
   get "home/index"
 
-  get "customer/new"
+  get "customers/index"
 
-  get "customer/create"
+  get "customers/new"
 
-  get "customer/update"
+  get "customers/create"
 
-  get "customer/destroy"
+  get "customers/update"
 
-  get "customer/show"
+  get "customers/destroy"
 
-  get "customer/index"
+  get "customers/show"
+
+
  
-  root to: 'customers#index'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -65,7 +71,7 @@ RbfProj::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+   root :to =>'home#index'
 
   # See how all your routes lay out with "rake routes"
 
