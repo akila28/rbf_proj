@@ -1,11 +1,120 @@
 <h1>Edit customer</h1>
  
- <div class="row">
-    <div class="span6 offset3">
- <%= form_for(@customer) do |f| %>
- <%= f.label :code %>
- <%= f.text_field :code,:readonly => true%>
- <% end %>         
+ <%= form_for @customer, :html => {:multipart => true} do |f| %>
+  <% if @customer.errors.any? %>
+  <h4>Customer not added</h4>
+  <ul>
+  <% @customer.errors.full_messages.each do |error| %>
+  <li><%= error %></li>
+  <% end %>
+  </ul>
+ <% end %>
+
+<h4><span class="customer">Customer details</span></h4>     
+<div class='row'>
+<div class='span6'>
+<div class="string input optional stringish control-group" id="customer_code_input">
+<%= f.label :code %><div class="controls"><%= f.text_field :code,:readonly => true %>
+<span class="help-block">auto-generated</span>
+</div></div>
+</div>
+
+<div class='span6'>
+<div class="string input optional stringish control-group" id="customer_status_input">
+<%= f.label :status %><div class="controls"><%= f.text_field :status,:readonly => true %>
+<span class="help-block">auto-updated</span>
+</div></div>
 </div>
 </div>
-<%= render 'form' %>
+
+<div class='row'>
+<div class='span6'>
+<div class="string input optional stringish control-group" id="customer_first_name_input"><%= f.label :first_name %><div class="controls"><%= f.text_field :first_name %>
+
+</div></div>
+</div>
+
+<div class='span6'>
+<div class="string input optional stringish control-group" id="customer_last_name_input"><%= f.label :last_name %><div class="controls"><%= f.text_field :last_name %>
+</div></div>
+</div>
+</div>
+
+<div class='row'>
+<div class='span6'>
+<div class="string input optional stringish control-group" id="customer_date_of_birth_input">
+<%= f.label :date_of_birth %><div class="controls"><%= f.text_field :date_of_birth %>
+
+</div></div>
+</div>
+
+<div class='span6'>
+<div class="string input optional stringish control-group" id="customer_sex_input">
+<%= f.label :sex %><div class="controls"><%= f.radio_button :sex, "male" %>
+     <%= f.label :sex, "male", :value => "male" %>
+     <%= f.radio_button :sex, "female" %>
+     <%= f.label :sex, "female", :value => "female" %>
+   
+</div></div>
+</div>
+</div>
+ 
+<hr>
+<h4><span class="customer">Contact details</span></h4>
+  
+<div class='row'>
+<div class='span6'>
+<div class="string input optional stringish control-group" id="customer_city_input">
+<%= f.label :city %><div class="controls"><%= f.text_field :city %>
+</div></div>
+</div>
+
+<div class='span6'>
+<div class="string input optional stringish control-group" id="customer_state_input">
+<%= f.label :state %><div class="controls"><%= f.text_field :state %>
+</div></div>
+</div>
+</div>
+
+<div class='row'>
+<div class='span6'>
+<div class="string input optional stringish control-group" id="customer_pincode_input">
+<%= f.label :pincode %><div class="controls"><%= f.text_field :pincode %>
+</div></div>
+</div>
+
+<div class='span6'>
+<div class="string input optional stringish control-group" id="customer_address_input">
+<%= f.label :address %><div class="controls"><%= f.text_field :address, :id => "address", :cols => 5, :rows => 3 %>
+</div></div>
+</div>
+</div>
+</hr>
+<hr>
+<h4><span class="customer">ID details</span></h4>
+<div class='row'>
+<div class='span6'>
+<div class="string input optional stringish control-group" id="customer_PAN_input">
+<%= f.label :PAN %><div class="controls"><%= f.text_field :PAN %>
+</div></div>
+</div>
+
+<br></br>
+<br></br>
+</hr>
+
+<hr>
+<h4><span class="customer">Photo</span></h4>
+<div class='row'>
+<div class='span6'>
+<div class="string input optional stringish control-group" id="customer_photo_input">
+<%= f.label :Photo %><div class="controls"><%= f.file_field :photo %>
+</div></div>
+</div>
+
+</hr> 
+          
+<fieldset class="form-actions"> <%= f.submit "Create Customer", class: "btn btn-primary" %></field>
+<% end %>
+</div>
+</div>
