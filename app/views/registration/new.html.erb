@@ -24,50 +24,6 @@
 <td><%=password_field_tag "user[password_confirmation]",@user.password_confirmation %></td>
 </tr>
 
-<tr>
-<td>First Name : </td>
-<td><%=text_field_tag "customer[first_name]" ,@customer.first_name %></td>
-</tr>
-
-<tr>
-<td>Last Name : </td>
-<td><%=text_field_tag "customer[last_name]" ,@customer.last_name %></td>
-</tr>
-
-<tr>
-<td>Date of birth : </td>
-<td><%=text_field_tag "customer[date_of_birth]" ,@customer.date_of_birth %></td>
-</tr>
-
-<tr>
-<td>Sex </td>
-<td><%=text_field_tag "customer[sex]" ,@customer.sex %></td>
-</tr>
-
-<tr>
-<td>Addres : </td>
-<td><%=text_area_tag "customer[address]" ,@customer.address ,:rows => 10, :cols => 25 %></td>
-</tr>
-
-<tr>
-<td>City</td>
-<td><%=text_field_tag "customer[city]" ,@customer.city %></td>
-</tr>
-
-<tr>
-<td>State</td>
-<td><%=text_field_tag "customer[state]" ,@customer.state %></td>
-</tr>
-
-<tr>
-<td>Pincode</td>
-<td><%=text_field_tag "customer[pincode]" ,@customer.pincode %></td>
-</tr>
-
-<tr>
-<td>Pan</td>
-<td><%=text_field_tag "customer[PAN]" ,@customer.PAN %></td>
-</tr>
 
 <tr>
 <td><%= submit_tag "submit", :class => "form_submit"%></td>
