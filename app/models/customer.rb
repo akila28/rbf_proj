@@ -18,21 +18,22 @@
 #
 
 class Customer < ActiveRecord::Base
-
-  attr_accessible :code, :PAN, :address, :city, :date_of_birth, :first_name, :last_name, :pincode, :sex, :state, :status, :photo
-belongs_to :user
+ attr_accessible :code, :PAN, :address, :city, :date_of_birth, :first_name, :last_name, :pincode, :sex, :state, :status, :photo, :user_id
+belongs_to :user 
 mount_uploader :photo, PhotoUploader 
 
-
 before_save :set_default_val
- def set_default_val
-    self.status = 'Pending' unless self.status
- end
+def set_default_val
+   self.status = 'Pending' unless self.status
+end
+
 
 before_create :increment_code
 def increment_code
     self.code = (self.class.last.nil?) ? "0000000001" : ((self.class.last.code.to_i) + 1).to_s.rjust(10,'0')
 end
+
+
 
 validates :first_name, presence: true,
 		       format: { with: %r{^[a-zA-Z]*} }

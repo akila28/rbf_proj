@@ -4,6 +4,7 @@ RbfProj::Application.routes.draw do
   
 resources :customers
 
+
   get "home/index"
 
   get "customers/index"

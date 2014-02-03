@@ -11,7 +11,7 @@ class CreateCustomers < ActiveRecord::Migration
       t.integer :pincode
       t.text :PAN
       t.string :status
-
+      t.integer :user_id
       t.timestamps
     end
   end

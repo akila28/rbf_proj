@@ -1,12 +1,33 @@
 <style>
-.entry-header {
-display: none;
+.sign_in_header{
+color:rgb(196,60,53);
 }
-
+.sign_in_label{
+background:none repeat scroll 0% 0% rgb(0, 100, 205);
+color:rgb(255,255,255);
+border-top-left-radius:8px;
+border-top-right-radius:8px;
+padding-left: 1em;
+margin-bottom: 0px;
+}
+#sign_in{
+border:3px solid rgb(0, 100, 205);
+border-bottom-left-radius:8px;
+border-bottom-right-radius:8px;
+padding: 1em 1em 0em;
+margin-top:-5px;
+}
 </style>
+
+<div class="container">
+ <section id="flashMsg">
+  <div class="alert alert-alert">You need to sign in or sign up before continuing</div>
+ </section>
 <div class="row">
-<div class="sign_in_header">
-<h2>Sign in</h2>
+<div class="offset3 span6">
+<h1 class="sign_in_header">Ruby Benefit Fund</h1>
+<h3 class="sign_in_label">sign in</h3>
+<div id="sign_in">
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <div><%= f.label :email %><br />
@@ -19,7 +40,11 @@ display: none;
     <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
   <% end -%>
 
-  <div><%= f.submit "Sign in" %></div>
+<fieldset class="form-actions">
+ <button class="btn" type="submit" name="button">Sign in</button>
+  </fieldset>
 <% end %>
-
+</div>
+</div>
+</div>
 <%= render "devise/shared/links" %>
