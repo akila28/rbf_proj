@@ -18,14 +18,8 @@
 #
 
 class Customer < ActiveRecord::Base
-<<<<<<< HEAD
- attr_accessible :code, :PAN, :address, :city, :date_of_birth, :first_name, :last_name, :pincode, :sex, :state, :status, :photo, :user_id
+attr_accessible :code, :PAN, :address, :city, :date_of_birth, :first_name, :last_name, :pincode, :sex, :state, :status, :photo, :user_id
 belongs_to :user 
-=======
- attr_accessible :code, :PAN, :address, :city, :date_of_birth, :first_name, :last_name, :pincode, :sex, :state, :status, :photo
-
-has_one :user 
->>>>>>> 61023aa5d3e1024519592224d159dd5e4481dc9f
 mount_uploader :photo, PhotoUploader 
 
 before_save :set_default_val
