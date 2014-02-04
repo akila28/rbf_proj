@@ -2,7 +2,7 @@ class CustomersController < ApplicationController
  
  def index
   @customers = Customer.all
-  @customers = Customer.where("first_name LIKE ? OR last_name LIKE ? OR date_of_birth LIKE ? OR code LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%").paginate(page: params[:page], per_page: 5)
+  @customers = Customer.where("first_name LIKE ? OR last_name LIKE ? OR code LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%").paginate(page: params[:page], per_page: 5)
  end 
 
  def new

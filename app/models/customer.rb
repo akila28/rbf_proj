@@ -22,15 +22,16 @@ attr_accessible :code, :PAN, :address, :city, :date_of_birth, :first_name, :last
 belongs_to :user 
 mount_uploader :photo, PhotoUploader 
 
-before_save :set_default_val
-def set_default_val
-   self.status = 'Pending' unless self.status
-end
 
 
 before_create :increment_code
 def increment_code
     self.code = (self.class.last.nil?) ? "0000000001" : ((self.class.last.code.to_i) + 1).to_s.rjust(10,'0')
+end
+
+before_save :set_default_val
+def set_default_val
+   self.status = 'Pending' unless self.status
 end
 
 
