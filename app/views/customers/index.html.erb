@@ -1,9 +1,4 @@
-<div class="offset3 span6">
-  <div align= "right">
-     <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-  </div>
-</div>
-</div>
+<br />
 <h1>Customers </h1>
 <%= form_tag customers_path, :method => 'get'  do %>
    <%= text_field_tag :search, params[:search], :placeholder => "name or code" %>

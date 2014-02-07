@@ -19,7 +19,7 @@ resources :customers
 
   get "customers/show"
 
-
+  get "home/show"
  
 
 

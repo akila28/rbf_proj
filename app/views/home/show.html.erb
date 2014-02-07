@@ -1,0 +1,47 @@
+<br /> 
+<div class="row">
+   <div class="span6 customer_left_span_properties">
+   <h4><span class="customer">User details</span></h4>
+   <div class="row">
+   <div class="span3">
+   <strong>user name</strong>
+   </div>
+   <div class="span3"> - <%= @user.username %> </div>
+   </div>
+   <br></br>
+
+<div class="row">
+   <div class="span3">
+   <strong>Email Id</strong>
+   </div>
+   <div class="span3"> - <%= @user.email %> </div>
+   </div>
+   <br></br>
+
+<div class="row">
+   <div class="span3">
+   <strong>Mobile</strong>
+   </div>
+   <div class="span3"> - <%= @user.Mobile_number %> </div>
+   </div>
+   <br></br>
+
+<div class="row">
+   <div class="span3">
+   <strong>Address</strong>
+   </div>
+   <div class="span3"> - <%= @user.Address %> </div>
+   </div>
+   <br></br>
+
+<div class="row">
+   <div class="span3">
+   <strong>Login Count</strong>
+   </div>
+   <div class="span3"> - <%= @user.sign_in_count %> </div>
+   </div>
+   </div>
+   </div>
+   <br></br>
+<%= link_to "Edit",edit_user_registration_path,class: "btn btn-primary" %>
+<%= link_to "Back",home_index_path,class: "btn btn-primary" %>

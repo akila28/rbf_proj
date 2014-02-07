@@ -1,3 +1,4 @@
+<br />
 <h2>Sign up</h2>
 
 <%= form_tag(user_registration_path,:method => 'post') %>
@@ -24,9 +25,18 @@
 <td><%=password_field_tag "user[password_confirmation]",@user.password_confirmation %></td>
 </tr>
 
+<tr>
+<td>Address : </td>
+<td><%=text_area "user[Address]",@user.Address,:rows =>2 ,:cols => 2 %></td>
+</tr>
 
 <tr>
-<td><%= submit_tag nil, :class => "form_submit"%></td>
+<td>Mobile_number : </td>
+<td><%=text_field_tag "user[Mobile_number]",@user.Mobile_number %></td>
+</tr>
+
+<tr>
+<td><%= submit_tag 'submit', :class => "form_submit"%></td>
 </tr>
 </table>
 <br />

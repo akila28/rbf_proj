@@ -3,6 +3,12 @@
   <div class="navbar-inner">
     <div class="container">
      <h5>Ruby Benefit Fund<h5>
+       <% if @customers %>
+       <div align ="right"><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></div>
+	<% elsif current_user %>
+       <div align ="right"><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+       </div>
+      <% end %>
     </div>
   </div>
 </header>    
