@@ -1,43 +1,56 @@
-<br />
-<h2>Sign up</h2>
+<style>
+.sign_up_header{
+color:rgb(196,60,53);
+}
+.sign_up_label{
+background:none repeat scroll 0% 0% rgb(0, 100, 205);
+color:rgb(255,255,255);
+border-top-left-radius:8px;
+border-top-right-radius:8px;
+padding-left: 1em;
+margin-bottom: 0px;
+}
+#sign_up{
+border:3px solid rgb(0, 100, 205);
+border-bottom-left-radius:8px;
+border-bottom-right-radius:8px;
+padding: 1em 1em 0em;
+margin-top:-5px;
+}
+</style>
 
-<%= form_tag(user_registration_path,:method => 'post') %>
-<%= devise_error_messages! %>
-<table>
+  <section id="flashMsg">
+  <div class="alert alert-alert">You need to sign in or sign up before continuing</div>
+   </section>
+  <div class="row">
+  <div class="offset3 span6">
+  <h1 class="sign_up_header">Ruby Benefit Fund</h1> 
+  <h3 class="sign_up_label">sign up</h3>
+  <div id="sign_up">
 
-<tr>
-<td>Username : </td>
-<td><%=text_field_tag "user[username]",@user.username %></td>
-</tr>
 
-<tr>
-<td>Email : </td>
-<td><%=email_field_tag "user[email]",@user.email %></td>
-</tr>
+ <%= form_tag(user_registration_path,:method => 'post') %>
+ <%= devise_error_messages! %>
 
-<tr>
-<td>Password : </td>
-<td><%=password_field_tag "user[password]",@user.password %></td>
-</tr>
 
-<tr>
-<td>Retype password : </td>
-<td><%=password_field_tag "user[password_confirmation]",@user.password_confirmation %></td>
-</tr>
+    Username  <h5><%=text_field_tag "user[username]",@user.username %></h6>
+     
+    Email  <h6><%=email_field_tag "user[email]",@user.email %></h6>
+     
+    Password  <h6><%=password_field_tag "user[password]",@user.password %></h6>
 
-<tr>
-<td>Address : </td>
-<td><%=text_area "user[Address]",@user.Address,:rows =>2 ,:cols => 2 %></td>
-</tr>
+    Retype password <h6><%=password_field_tag "user[password_confirmation]",@user.password_confirmation%>
+    </h6>
 
-<tr>
-<td>Mobile_number : </td>
-<td><%=text_field_tag "user[Mobile_number]",@user.Mobile_number %></td>
-</tr>
+    Address  <h6><%=text_area_tag "user[Address]",@user.Address,:rows => 2,:cols => 2 %></h6>
 
-<tr>
-<td><%= submit_tag 'submit', :class => "form_submit"%></td>
-</tr>
-</table>
+    Mobile_number  <h6><%=text_field_tag "user[Mobile_number]",@user.Mobile_number %></h6>
+
+     <fieldset class="form-actions">
+      <button class="btn" type="submit" name="button">Sign up</button>
+     </fieldset>
+   </div>
+  </div>
+</div>
 <br />
 <%= render :partial => "devise/shared/links" %>

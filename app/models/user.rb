@@ -10,5 +10,6 @@ class User < ActiveRecord::Base
    has_many :customers
   # attr_accessible :title, :body
 validates :Mobile_number, presence: true
+validates_length_of :Mobile_number, :is => 10, :wrong_length => "should have 10digits"
 validates :Address, presence: true
 end
