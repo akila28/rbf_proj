@@ -18,7 +18,9 @@
 #
 
 class Customer < ActiveRecord::Base
-attr_accessible :code, :PAN, :address, :city, :date_of_birth, :first_name, :last_name, :pincode, :sex, :state, :status, :photo, :user_id
+has_many :folios
+accepts_nested_attributes_for :folios
+attr_accessible :code, :PAN, :address, :city, :date_of_birth, :first_name, :last_name, :pincode, :sex, :state, :status, :photo, :folios_attributes
 belongs_to :user 
 mount_uploader :photo, PhotoUploader 
 
@@ -33,6 +35,7 @@ before_save :set_default_val
 def set_default_val
    self.status = 'Pending' unless self.status
 end
+
 
 
 

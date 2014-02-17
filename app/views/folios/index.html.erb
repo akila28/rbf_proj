@@ -1,0 +1,26 @@
+<br />
+<div>
+  
+<h2>Customer Folio Details</h2>
+<table cellpadding = "5px" cellspacing = "5px" width = "100%" class="table table-striped">
+    <tr>
+	
+      <th>Folio allocation date</th>
+        <th>Folio Number</th>
+        <th>No_of_shares</th>
+        <th>Customer Id</th>
+       
+     </tr>
+<% @folios.each do |folio| %>
+    <tr>
+      <td><%= folio.folio_allocation_date %></td>
+      <td><%= folio.folio_number %></td>
+      <td><%= folio.no_of_shares %></td>
+      <td><%= folio.customer_id %></td>
+
+      </tr>
+  <% end %>
+</table>
+
+</div>
+ 

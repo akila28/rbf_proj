@@ -1,5 +1,6 @@
 <br />
-<h1>Customers </h1>
+<h1> Customers </h1>
+
 <%= form_tag customers_path, :method => 'get'  do %>
    <%= text_field_tag :search, params[:search], :placeholder => "name or code" %>
    <%= submit_tag "Search", :first_name => nil, class: "btn btn-primary" %>
@@ -7,31 +8,34 @@
 <% end %>
  <h6 class= "alert alert-info"><%= page_entries_info @customers %></h6>
 
+<div>
+<table cellpadding = "5px" cellspacing = "5px" width = "100%" class="table table-striped">
 
-<table class="table table-striped">
   <tr>
+    <th>Folio number</th>
     <th>code</th>
     <th>Name</th>
     <th>address</th>
     <th>status</th>
     <th>photo</th>
     <th> E/D</th>
- 
-  </tr>
+ </tr>
+
   <% @customers.each do |customer| %>
+
     <tr>
+      <td><% for folio in customer.folios %><%= link_to folio.folio_number, folios_path %><% end %></td>
       <td><%= link_to "#{customer.code}" , customer_path(customer)%></td>
       <td><%= link_to "#{customer.first_name} #{customer.last_name}" , customer_path(customer)%></td>
       <td><%= customer.address%></td>
       <td><span class="label label-success"><%= customer.status%></span></td>
-      <td><%= image_tag customer.photo, :size => "50x50", :crop => :fill %></td>
+      <td><%= image_tag customer.photo, :size => "50x50" %></td>
       <td><%= link_to "Edit",edit_customer_path(customer),class: "btn btn-primary" %>
       <%= link_to "Delete",customer_path(customer),class: "btn btn-danger",
       method: :delete, confirm: "Are You Sure?" %></td>
     </tr>
-  <% end %>
+ <% end %>
 </table>
-<br />
 </div>
 
 <%= will_paginate @customers %>

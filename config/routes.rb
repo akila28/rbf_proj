@@ -1,25 +1,34 @@
 RbfProj::Application.routes.draw do
+get "folios/index"
+get "folios/show"
+
+resources :folios
+
   devise_for :users,:controllers => { :registrations =>'registration'}
+resources :customers
+resources :home
   match 'dashboard' => 'home#dashboard'
   
-resources :customers
 
 
-  get "home/index"
 
-  get "customers/index"
+  #get "home/index"
 
-  get "customers/new"
+  #get "customers/index"
 
-  get "customers/create"
+  #get "customers/new"
 
-  get "customers/update"
+  #get "customers/create"
 
-  get "customers/destroy"
+  #get "customers/update"
 
-  get "customers/show"
+  #get "customers/destroy"
+
+  #get "customers/show"
 
   get "home/show"
+
+  
  
 
 

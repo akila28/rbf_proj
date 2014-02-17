@@ -12,15 +12,10 @@
   </ul>
  <% end %>
 
+
+
 <h4><span class="customer">Customer details</span></h4>     
 <div class='row'>
-<div class='span6'>
-<div class="string input optional stringish control-group" id="customer_code_input">
-<%= f.label :code %><div class="controls"><%= f.text_field :code,:readonly => true %>
-<span class="help-block">auto-generated</span>
-</div></div>
-</div>
-
 <div class='span6'>
 <div class="string input optional stringish control-group" id="customer_status_input">
 <div class="controls"><br></ br>
@@ -112,8 +107,28 @@
 <%= f.label :Photo %><div class="controls"><%= f.file_field :photo %>
 </div></div>
 </div>
+<br />
+</hr> 
+<br /><br />
+<hr>
+<%= f.fields_for :folios do |f|%>
+
+
+<h4><span class="folio">share</span></h4>
+<div class='row'>
+<div class='span6'>
+<div class="string input optional stringish control-group">
+<%= f.label :no_of_shares %><div class="controls"><%= f.text_field :no_of_shares, :class => 'textbox', :value => '' %>
+</div></div>
+</div>
+
+
+<div class='span6'>
+
 
 </hr> 
+<% end %>
+
           
 <fieldset class="form-actions"> <%= f.submit "Create Customer", class: "btn btn-primary" %></field>
 <% end %>

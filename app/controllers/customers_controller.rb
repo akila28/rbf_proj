@@ -1,24 +1,25 @@
 class CustomersController < ApplicationController
- 
- def index
-  @customers = Customer.all
-  @customers = Customer.where("first_name LIKE ? OR code LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%").paginate(page: params[:page], per_page: 5)
- end 
-
- def new
+  def new
   @customer = Customer.new
+  @folio = @customer.folios.build
  end
 
  def create
   @customer = Customer.new(params[:customer])
-   if @customer.save
-      flash[:success] = "Welcome to RBF!"
-      redirect_to customer_path(@customer)
+  if @customer.save
+   flash[:success] = "Welcome!"
+   redirect_to customer_path(@customer)           
     else
-      flash[:alert] = "Customer not added"  
-      render 'new'
-    end
+   flash[:alert] = "Customer not added"
+   render 'new'
+  end    
  end
+
+def index
+  @customers = Customer.all
+  #@folios = Folio.all
+  @customers = Customer.where("first_name LIKE ? OR code LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%").paginate(page: params[:page], per_page: 5)
+ end 
 
  def edit
   @customer = Customer.find(params[:id])
@@ -26,17 +27,17 @@ class CustomersController < ApplicationController
 
  def update
   @customer = Customer.find(params[:id])
-  if @customer.update_attributes(params[:customer])
+   if @customer.update_attributes(params[:customer])
     flash[:success] = "updated successfully"
     redirect_to customers_path(@customer)
     else
     flash[:alert] = "failed"
     render 'edit'
-  end
+   end
  end
 
  def show
-    @customer = Customer.find(params[:id])
+  @customer = Customer.find(params[:id])
  end
  
  def destroy
@@ -44,5 +45,5 @@ class CustomersController < ApplicationController
   @customer.destroy
   flash[:notice] = "customer has been deleted"
   redirect_to customers_path
-  end
+ end
 end
