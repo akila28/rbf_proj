@@ -4,7 +4,6 @@ class CreateFolios < ActiveRecord::Migration
       t.datetime :folio_allocation_date
       t.string :folio_number
       t.integer :no_of_shares
-      t.integer :customer_id
       t.timestamps
     end
   end
