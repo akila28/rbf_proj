@@ -6,10 +6,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :Address, :Mobile_number
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :Address, :mobile_number
    has_many :customers
   # attr_accessible :title, :body
-validates :Mobile_number, presence: true
-validates_length_of :Mobile_number, :is => 10, :wrong_length => "should have 10digits"
+validates :mobile_number, presence: true
+validates_length_of :mobile_number, :is => 10, :wrong_length => "should have 10digits"
 validates :Address, presence: true
 end

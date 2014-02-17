@@ -12,7 +12,7 @@ def create
 @user.password = params[:user][:password]
 @user.password_confirmation = params[:user][:password_confirmation]
 @user.Address = params[:user][:Address]
-@user.Mobile_number = params[:user][:Mobile_number]
+@user.mobile_number = params[:user][:mobile_number]
 @user.valid?
 if @user.errors.blank?
 
