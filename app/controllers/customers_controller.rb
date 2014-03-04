@@ -1,7 +1,12 @@
 class CustomersController < ApplicationController
-  def new
+
+ 
+def new
   @customer = Customer.new
   @folio = @customer.folios.build
+  @savingsdeposit = @customer.savingsdeposits.build
+
+
  end
 
  def create
@@ -17,7 +22,6 @@ class CustomersController < ApplicationController
 
 def index
   @customers = Customer.all
-  #@folios = Folio.all
   @customers = Customer.where("first_name LIKE ? OR code LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%").paginate(page: params[:page], per_page: 5)
  end 
 

@@ -1,9 +1,7 @@
 class Folio < ActiveRecord::Base
 
   belongs_to :customer
-
-  attr_accessible :folio_allocation_date, :folio_number, :no_of_shares, :customer_id
-
+ attr_accessible :folio_allocation_date, :folio_number, :no_of_shares, :customer_id
   #validates :no_of_shares, :presence => true
  
   before_create :increment_folio_number

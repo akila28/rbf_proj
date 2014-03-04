@@ -1,12 +1,21 @@
-
 <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
-     <div class="container">
-     <h5>Ruby Benefit Fund<h5>
+ <div class="navbar-inner">
+   <div class="container-fluid">
+      <ul class="nav">
+	 <li class="dropdown">
+           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Deposits
+	   <b class="caret"></b>
+           </a>
+             <ul class="dropdown-menu">
+             <li>
+	     <a accesskey="s" href"/savingsdeposits">Savings</a>
+             </li>
+             </ul></ul></li>
+ 
        <% if @customers %>
-       <div align ="right"><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></div>
+       <div align ="right"><h5><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></div></h5>
 	<% elsif current_user %>
-       <div align ="right"><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+       <div align ="right"><h5><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></h5>
        </div>
       <% end %>
     </div>

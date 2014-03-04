@@ -19,8 +19,11 @@
 
 class Customer < ActiveRecord::Base
 has_many :folios
+
 accepts_nested_attributes_for :folios
-attr_accessible :code, :PAN, :address, :city, :date_of_birth, :first_name, :last_name, :pincode, :sex, :state, :status, :photo, :folios_attributes
+has_many :savingsdeposits
+accepts_nested_attributes_for :savingsdeposits
+attr_accessible :code, :PAN, :address, :city, :date_of_birth, :first_name, :last_name, :pincode, :sex, :state, :status, :photo, :folios_attributes, :savingsdeposits_attributes
 belongs_to :user 
 mount_uploader :photo, PhotoUploader 
 

@@ -2,24 +2,26 @@
 <html>
 <head>
   <title>Rbf</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-   <%= render 'layouts/shim' %>
+     <%= stylesheet_link_tag    "application", :media => "all" %>
+     <%= javascript_include_tag "application" %>
+     <%= javascript_include_tag "autocomplete-rails.js" %>
+     <%= csrf_meta_tags %>
+     <%= render 'layouts/shim' %>
 </head>
 
 
-<body>
+  <body>
+    <div id="header">
     <%= render 'layouts/header' %>
-    <div class="container">
+    </div>
+      <div class="container">
       <% flash.each do |key, value| %>
-      <br /><br />
+        <br /><br />
       <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
       <%= yield %>
+          <div id="header">
       <%= render 'layouts/footer' %>
-    </div>
-
-
-</body>
+      </div></div>
+   </body>
 </html>

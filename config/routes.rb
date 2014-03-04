@@ -1,18 +1,16 @@
 RbfProj::Application.routes.draw do
-get "folios/index"
-get "folios/show"
+ 
+  resources :customers
+  resources :folios
+  resources :savingsdeposittransactions 
+  resources :savingsdeposits do
+    get :autocomplete_customer_first_name, :on => :collection
+  end
 
-resources :folios
+ resources :home
+   match 'dashboard' => 'home#dashboard'
+   devise_for :users, :controllers => { :registrations => 'registration'}
 
-  devise_for :users,:controllers => { :registrations =>'registration'}
-resources :customers
-resources :home
-  match 'dashboard' => 'home#dashboard'
-  
-
-
-
-  #get "home/index"
 
   #get "customers/index"
 
@@ -25,11 +23,22 @@ resources :home
   #get "customers/destroy"
 
   #get "customers/show"
+  get "home/index"
 
   get "home/show"
 
-  
+  get "savingsdeposits/index"
+
+  get "savingsdeposits/new"
+
+  get "savingsdeposits/show"
+
+  get "savingsdeposittransactions/new"
  
+  get "folios/index"
+
+  get "folios/show"
+  
 
 
   # The priority is based upon order of creation:

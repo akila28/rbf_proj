@@ -1,0 +1,38 @@
+<br />
+<h1> savings deposit</h1>
+  <br />
+     <%= form_tag savingsdeposits_path, :method => 'get'  do %>
+     <%= text_field_tag :search, params[:search], :placeholder => "customer id" %> 
+     <%= submit_tag "Search", :customer_id => nil, class: "btn btn-primary" %> 
+     <%= link_to "New savings deposits", new_savingsdeposit_path,class: "btn-primary btn" %>
+     <% end %>
+     <h6 class= "alert alert-info"><%= page_entries_info @savingsdeposits %></h6>
+  <br />
+ <div> 
+ 
+<table cellpadding = "5px" cellspacing = "5px" width = "100%" class="table table-striped">
+  <tr>
+    <th>name</th>
+    <th>id</th>
+    <th>current balance</th>
+    <th>opened on</th>
+    <th>Account type</th>
+    <th>status</th>
+
+ </tr>
+    <% @savingsdeposits.each do |savingsdeposit| %>
+      <tr>
+      <td><%= link_to "#{savingsdeposit.customer.first_name} #{savingsdeposit.customer.last_name}         #{savingsdeposit.customer.code}" , savingsdeposit_path(savingsdeposit)%></td>
+      <td><%= savingsdeposit.customer_id %></td>
+      <td><%= savingsdeposit.current_balance %></td>
+      <td><%= savingsdeposit.opened_on %></td>
+      <td><%= savingsdeposit.account_type %></td>
+      <td><span class="label label-success"><%= savingsdeposit.status %></span></td>
+      </tr>
+    <% end %>
+  </table>
+ </div>
+<%= will_paginate @savingsdeposits %>
+
+
+

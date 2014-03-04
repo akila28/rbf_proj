@@ -1,0 +1,39 @@
+
+ <h4><span class="savingsdeposittransaction">New Transaction  </span></h4>
+     <%= form_for @savingsdeposittransaction do |f| %>
+     <%= f.hidden_field :savingsdeposit_id, :value => params[:id] %>
+     <% if @savingsdeposittransaction.errors.any? %>
+        <h4>Customer not added</h4>
+        <ul>
+        <% @savingsdeposittransaction.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+        <% end %>
+        </ul>
+      <% end %>
+
+
+
+<%= f.label :transaction_mode %><%= f.select(:transaction_mode, options_for_select(['credit','debit'])) %>
+
+<%= f.label :transaction_date %>  <%= f.text_field :transaction_date, :value => Date.today, :readonly => true %>
+
+<%= f.label :transaction_type %> <%= f.select(:transaction_type, options_for_select(['cash','bank','transfer'])) %>
+
+<%= f.label :transaction_amount %> <%= f.text_field :transaction_amount %>
+
+<%= f.label :current_balance %><%= f.text_field :current_balance,:readonly => true, :value => @savingsdeposittransaction.savingsdeposit.current_balance %>
+
+<%= f.label :particulars %> <%= f.text_field :particulars %>
+
+<%= f.label :comments %> <%= f.text_field :comments %>
+
+<%= f.label :status %><%= f.text_field :status,:readonly => true, :value => @savingsdeposittransaction.savingsdeposit.status %>
+
+<fieldset class="form-actions"> <%= f.submit "submit transaction", class: "btn btn-primary" %></field>
+<% end %></div>
+
+
+
+
+
+
