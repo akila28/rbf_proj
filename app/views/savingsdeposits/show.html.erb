@@ -22,8 +22,7 @@
     <td><%= @savingsdeposit.opened_on %></td>
     <td><%= @savingsdeposit.status %></td> 
     <td><%= @savingsdeposit.account_type %></td> 
-    <td><% for savingsdeposittransaction in @savingsdeposit.savingsdeposittransactions %>
-     <%= savingsdeposittransaction.bal %><% end %></td>
+    <td><%= @savingsdeposit.current_balance %></td>
 </tr>
 </table>
 <h2>Transaction History</h2>

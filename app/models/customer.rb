@@ -52,6 +52,7 @@ validates_length_of :pincode, :is => 6, :wrong_length => "should have 6digits"
 
 validates :PAN, presence: true, format: { with: %r{^[A-Z]{5}\d{4}[A-Z]{1}} }
 validates_length_of :PAN, :is => 10, :wrong_length => "should have 10digits"
+validates_uniqueness_of :PAN 
 
 validates_inclusion_of :date_of_birth,
                 :in => Date.civil(1900,1,1)..Date.today,

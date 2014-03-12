@@ -10,7 +10,7 @@ autocomplete  :customer, :first_name, :display_value => :first_name, :full => tr
   @savingsdeposit = Savingsdeposit.new(params[:savingsdeposit])
   if @savingsdeposit.save
    flash[:success] = "savingsdeposit details!"
-   redirect_to savingsdeposits_path          
+   redirect_to savingsdeposits_path(@savingsdeposit)          
     else
    flash[:alert] = "savingsdeposit not added"
    render 'new'

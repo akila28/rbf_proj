@@ -33,7 +33,7 @@ margin-top:-5px;
 <div id="sign_in">
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
+  <div><%= f.label :email %><br /><i class="icon-envelope"></i>
   <%= f.email_field :email, :autofocus => true %></div>
 
   <div><%= f.label :password %><br />

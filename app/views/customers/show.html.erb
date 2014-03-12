@@ -1,12 +1,28 @@
 <br />
 <h1><%= link_to "Customers", customers_path %></h1>  
+<br />
 
-<br> </br>
+ 
     <div class = "span6 offset6">
-      <%= link_to"Edit", edit_customer_path, class: "btn btn-primary" %>
-      <%= link_to "Delete",customer_path,class: "btn btn-danger",
-      method: :delete, confirm: "Are You Sure?" %>
+    <div class="btn-group">
+
+    <a class="btn btn-primary" href="/customers">
+       <i class="icon-user icon-white"></i> List all Customers</a>
+
+    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+       <span class="caret"></span></a>
+       
+    <ul class="dropdown-menu">
+      <li><%= link_to(edit_customer_path(@customer), :class => 'btn btn-primary') do %>
+          Edit Current Customer <i class="icon-pencil icon-white"></i>
+      <% end %></li>
+    
+      
+      <li><%= link_to(customer_path(@customer), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger') do %>
+          Delete Current Customer <i class="icon-trash icon-white"></i>
+       <% end %></li>
     </div>
+</div>
 
 <h3><span class = "customer"><%= @customer.code %></span></h3>
 <h5><%= "#{@customer.first_name} #{@customer.last_name}" %></h5>
@@ -24,7 +40,8 @@
    <div class="span3"> - <%= @customer.status %> </div>
    </div>
    </div>
-   </div>
+
+
 </hr>
 
 <hr>
@@ -58,13 +75,11 @@
    <div class="span3">
    <strong>Photo</strong>
    </div>  
-   <div class="span3"> : <%= image_tag @customer.photo, :size => "50x50", :crop => :fill %></div>
+   <div class="span3"> : <%= image_tag @customer.photo, :size => "50x50", class: "img-circle" %></div>
    </div>
 </hr>
-<br></br>
+<br></br> 
 
-<%= link_to"Back", customers_path, class: "btn btn-info" %>
-<%= link_to"Edit", edit_customer_path, class: "btn btn-primary" %>
-<%= link_to "Delete",customer_path,class: "btn btn-danger",
-      method: :delete, confirm: "Are You Sure?" %>
- 
+ <div class = "span3 offset3">
+    <a class="btn btn-info btn-lg btn-block" href="/customers">Back</a>
+ </div>
