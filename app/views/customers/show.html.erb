@@ -40,8 +40,7 @@
    <div class="span3"> - <%= @customer.status %> </div>
    </div>
    </div>
-
-
+   </div>
 </hr>
 
 <hr>
@@ -75,7 +74,7 @@
    <div class="span3">
    <strong>Photo</strong>
    </div>  
-   <div class="span3"> : <%= image_tag @customer.photo, :size => "50x50", class: "img-circle" %></div>
+   <div class="span3"> : <%= image_tag @customer.photo, :size => "50x50", :crop => :fill %></div>
    </div>
 </hr>
 <br></br> 
