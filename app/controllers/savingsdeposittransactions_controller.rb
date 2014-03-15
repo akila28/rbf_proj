@@ -34,7 +34,7 @@ class SavingsdeposittransactionsController < ApplicationController
   def show
        #@savingsdeposittransaction = current.savingsdeposittransaction
     @savingsdeposittransaction = Savingsdeposittransaction.find(params[:id])
-    @customer = Customer.all
+   #@customer = Customer.all
   end
  
   def destroy
