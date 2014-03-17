@@ -1,10 +1,10 @@
 <br />
 <h1> savings deposit</h1>
   <br />
-     <%= form_tag savingsdeposits_path, :method => 'get'  do %>
+
      <%= link_to "New savings deposits", new_savingsdeposit_path,class: "btn-primary btn" %>
-     <% end %>
-     <h6 class= "alert alert-info"><%= page_entries_info @savingsdeposits %></h6>
+
+
   <br />
  <div> 
  
@@ -28,7 +28,7 @@
     <% end %>
   </table>
  </div>
-<%= will_paginate @savingsdeposits %>
+
 
 
 
