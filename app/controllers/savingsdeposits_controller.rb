@@ -20,7 +20,7 @@ autocomplete  :customer, :first_name, :display_value => :first_name, :full => tr
 
  def index
   @savingsdeposits = Savingsdeposit.all
-  @savingsdeposits = Savingsdeposit.where("customer_id LIKE ?", "%#{params[:search]}%").paginate(page: params[:page], per_page: 5)
+  #@savingsdeposits = Savingsdeposit.where("customer_id LIKE ?", "%#{params[:search]}%").paginate(page: params[:page], per_page: 5)
   @customers = Customer.all
  end 
 
