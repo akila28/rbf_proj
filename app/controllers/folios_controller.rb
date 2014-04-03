@@ -6,7 +6,7 @@ def index
 end
 
 def show
- # @folio = Folio.find(params[:id])
+ @folio = Folio.find(params[:id])
 end
 
 end

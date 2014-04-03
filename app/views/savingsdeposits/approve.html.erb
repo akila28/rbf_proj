@@ -1,24 +1,8 @@
 <br />
 <h1> Savings deposit</h1>
   <br />
-     <%= link_to "New savings deposits", new_savingsdeposit_path,class: "btn-primary btn" %>
-
-<div class="btn-group">
-      <a class="btn btn-primary">Transactions Pending</a>
-      <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-      <span class="caret"></span></a>
-       <ul class="dropdown-menu">
-        <li><% if can? :approve, @savingsdeposit %>
-  <%= link_to "Approve", savingsdeposits_approve_path(@savingsdeposit) %>
-<% end %></li>
-         <li><a href="/savingsdeposits">closed</a></li>
-        </ul>
-   </div>
-
-     <div> 
-   <br />
-
-<table cellpadding = "5px" cellspacing = "5px" width = "100%" class="table table-striped">
+<% if current_user.role == 'manager' %>
+     <table cellpadding = "5px" cellspacing = "5px" width = "100%" class="table table-striped">
   <tr>
     <th>id</th>
     <th>current balance</th>
@@ -41,7 +25,8 @@ More info <i class="icon-info-sign icon-white"></i>
                    <% end %>
 </td>
       </tr>
-    <% end %>
+    
   </table>
- </div>
+<% end %> 
+
 

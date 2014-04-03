@@ -1,11 +1,15 @@
 <h1><span class="savingsdeposit">Savingsdeposit details</span></h1><br /><br />
+
 <div class="row">
-<div class="span6 offset6 action_bar">
-<div>
- <%= link_to "Edit transaction", edit_savingsdeposit_path(:id => @savingsdeposit.id),class: "btn-primary btn" %>
- <%= link_to "Add transaction", new_savingsdeposittransaction_path(:id => @savingsdeposit.id),class: "btn-primary btn" %>
+ <div class="span6 offset6 action_bar">
+  <div>
+   <%= link_to "Edit transaction", edit_savingsdeposit_path(:id => @savingsdeposit.id),class: "btn-primary btn" %>
+
+   <%= link_to "Add transaction", new_savingsdeposittransaction_path(:id => @savingsdeposit.id),class: "btn-primary btn" %>
+   
+ </div>
+ </div>
 </div>
-</div></div>
    
 
    <h5><%= "#{@savingsdeposit.customer.first_name} #{@savingsdeposit.customer.last_name}               #{@savingsdeposit.customer.code}" %></h5>
@@ -25,8 +29,8 @@
     <td><%= @savingsdeposit.current_balance %></td>
 </tr>
 </table>
-<h2>Transaction History</h2>
-<br />
+
+<h1>Transaction History</h1><br />
 <table cellpadding = "5px" cellspacing = "5px" width = "100%" class="table table-striped">
 <tr>
       <th>transaction date</th>
@@ -47,4 +51,8 @@
 </tr>
 <% end %>
 </table>
+
+<div align = "right">
+<a class="btn btn-inverse" href="/dailyproducts">Daily Product</a>
+</div>
 

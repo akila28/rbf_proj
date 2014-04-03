@@ -25,12 +25,7 @@ after_save :calculate_current_balance
 
        end
          savingsdeposit.save
-   
- end
-
-
-
-
+    end
 
   
    before_save :set_default_val

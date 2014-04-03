@@ -10,6 +10,10 @@ gem 'carrierwave'
 gem 'rmagick'
 gem "devise"
 gem 'rails3-jquery-autocomplete'
+gem "bootstrap-sass-rails"
+gem 'cancancan'
+
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

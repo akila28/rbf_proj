@@ -1,22 +1,4 @@
 <style>
-.sign_up_header{
-color:rgb(196,60,53);
-}
-.sign_up_label{
-background:none repeat scroll 0% 0% rgb(0, 100, 205);
-color:rgb(255,255,255);
-border-top-left-radius:8px;
-border-top-right-radius:8px;
-padding-left: 1em;
-margin-bottom: 0px;
-}
-#sign_up{
-border:3px solid rgb(0, 100, 205);
-border-bottom-left-radius:8px;
-border-bottom-right-radius:8px;
-padding: 1em 1em 0em;
-margin-top:-5px;
-}
 
 #header {display:none;}
 #footer {display:none;}
@@ -25,36 +7,43 @@ margin-top:-5px;
 
   <section id="flashMsg">
   <div class="alert alert-alert">You need to sign in or sign up before continuing</div>
-   </section>
-  <div class="row">
-  <div class="offset3 span6">
+  </section>
+ 
+ <div class="row">
+
   <h1 class="sign_up_header">Ruby Benefit Fund</h1> 
   <h3 class="sign_up_label">sign up</h3>
   <div id="sign_up">
 
+<div class="border-form-div">
 
- <%= form_tag(user_registration_path,:method => 'post') %>
- <%= devise_error_messages! %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+  <div><%= f.label :username %><br />
+  <%= f.text_field :username %></div>
 
+ <div><%= f.label :mobile_number %><br />
+  <%= f.text_field :mobile_number %></div>
 
-    Username  <h5><%=text_field_tag "user[username]",@user.username %></h6>
-     
-    Email  <h6><%=email_field_tag "user[email]",@user.email %></h6>
-     
-    Password  <h6><%=password_field_tag "user[password]",@user.password %></h6>
+  <div><%= f.label :Address %><br/>
+  <%= f.text_area :Address, :id => "Address", :cols => 5, :rows => 3 %></div>
+      
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, :autofocus => true %></div>
 
-    Retype password <h6><%=password_field_tag "user[password_confirmation]",@user.password_confirmation%>
-    </h6>
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
 
-    Address  <h6><%=text_area_tag "user[Address]",@user.Address,:rows => 2,:cols => 2 %></h6>
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
 
-    mobile_number  <h6><%=text_field_tag "user[mobile_number]",@user.mobile_number %></h6>
+  <div><%= f.label :role %><br />
+  <%= f.select :role, options_for_select([["Manager", "manager"], ["Deo",  "deo"]]), { :include_blank => true } %>
+ </div>
 
-     <fieldset class="form-actions">
-      <button class="btn" type="submit" name="button">Sign up</button>
-     </fieldset>
-   </div>
-  </div>
+  <div><%= f.submit "Sign up" %></div>
+<% end %>
 </div>
-<br />
+</div>
+</div>
 <%= render :partial => "devise/shared/links" %>

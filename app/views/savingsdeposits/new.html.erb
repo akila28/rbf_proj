@@ -19,12 +19,11 @@
           autocomplete_customer_first_name_savingsdeposits_path,
           :size => 75, :id_element => '#real_customer_id' %> <br />
  
- 
+    
     <%= f.label :current_balance %>
-    <%= f.text_field :current_balance %>
+    <%= f.text_field :current_balance, :value =>"0.00" %>
 
-    <%= f.label :opened_on %>
-    <abbr title = "required">*</abbr></label>
+    <%= f.label :opened_on, class: 'required' %>
     <%= f.text_field :opened_on, :readonly => true, :value => @savingsdeposit.opened_on %>
 
     <%= f.label :account_type %>

@@ -13,6 +13,7 @@ def create
 @user.password_confirmation = params[:user][:password_confirmation]
 @user.Address = params[:user][:Address]
 @user.mobile_number = params[:user][:mobile_number]
+@user.role = params[:user][:role]
 @user.valid?
 if @user.errors.blank?
 

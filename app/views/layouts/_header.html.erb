@@ -21,6 +21,8 @@
         </li>  
        </li>
       </ul>
+<ul class="nav nav-pills pull-right">
+
        <% if @customers %>
        <div align ="right">
        <h5><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></div></h5>
@@ -32,4 +34,5 @@
     </div>
   </div>
 </header>    
+</ul>
 

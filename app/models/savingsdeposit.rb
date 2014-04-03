@@ -1,8 +1,13 @@
 class Savingsdeposit < ActiveRecord::Base
+  has_many :dailyproducts
+  accepts_nested_attributes_for :dailyproducts
+
   belongs_to :customer
+  
   has_many :savingsdeposittransactions
   accepts_nested_attributes_for :savingsdeposittransactions
-  attr_accessible :account_type, :opened_on, :status, :customer_id, :current_balance
+  
+  attr_accessible :account_type, :opened_on, :status, :customer_id, :current_balance, :dailyproducts_attributes, :role
 
    attr_accessible :savingsdeposittransactions_attributes
    attr_accessor :transaction_amount
@@ -14,10 +19,15 @@ class Savingsdeposit < ActiveRecord::Base
 
 
   before_save :set_default_val
-     def set_default_val
-      self.status = 'Pending' unless self.status
+    def set_default_val
+     self.status = 'Pending' unless self.status
      end
 
+ after_create :approve
+private
+ def approve
+   self.update_attribute(:status, 'Approved') if self.status = "pending"
+ end
 
   validates :customer_id, presence: true
 

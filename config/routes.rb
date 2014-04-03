@@ -3,30 +3,24 @@ RbfProj::Application.routes.draw do
   resources :customers
   resources :folios
   resources :savingsdeposittransactions 
+
   resources :savingsdeposits do
     get :autocomplete_customer_first_name, :on => :collection
+
   end
+
 
  resources :home
    match 'dashboard' => 'home#dashboard'
    devise_for :users, :controllers => { :registrations => 'registration'}
 
-
-  #get "customers/index"
-
-  #get "customers/new"
-
-  #get "customers/create"
-
-  #get "customers/update"
-
-  #get "customers/destroy"
-
-  #get "customers/show"
+  resources :dailyproducts
+  
   get "home/index"
 
   get "home/show"
-
+  get "savingsdeposits/approve"
+  get "savingsdeposits/pending"
   get "savingsdeposits/index"
 
   get "savingsdeposits/new"
@@ -38,6 +32,8 @@ RbfProj::Application.routes.draw do
   get "folios/index"
 
   get "folios/show"
+
+  get "dailyproducts/index"
   
 
 

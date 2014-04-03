@@ -1,9 +1,8 @@
 <br />
 <h1><%= link_to "Customers", customers_path %></h1>  
 <br />
-
- 
-    <div class = "span6 offset6">
+<div class="jumbotron">
+   <div class = "span6 offset6">
     <div class="btn-group">
 
     <a class="btn btn-primary" href="/customers">
@@ -13,20 +12,20 @@
        <span class="caret"></span></a>
        
     <ul class="dropdown-menu">
-      <li><%= link_to(edit_customer_path(@customer), :class => 'btn btn-primary') do %>
-          Edit Current Customer <i class="icon-pencil icon-white"></i>
+      <li><%= link_to(edit_customer_path(@customer)) do %>
+          Edit Current Customer <i class="icon-pencil icon-black"></i>
       <% end %></li>
     
       
-      <li><%= link_to(customer_path(@customer), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger') do %>
-          Delete Current Customer <i class="icon-trash icon-white"></i>
+      <li><%= link_to(customer_path(@customer), :method => :delete, :confirm => 'Are you sure?') do %>
+          Delete Current Customer <i class="icon-trash icon-black"></i>
        <% end %></li>
     </div>
 </div>
 
-<h3><span class = "customer"><%= @customer.code %></span></h3>
-<h5><%= "#{@customer.first_name} #{@customer.last_name}" %></h5>
-<h5><%= "Age of the customer: #{Date.today.year - @customer.date_of_birth.year}" %></h5> 
+<h4><span class = "customer"><%= @customer.code %></span></h4>
+<%= "#{@customer.first_name} #{@customer.last_name}" %>
+<h5><%= "Age : #{Date.today.year - @customer.date_of_birth.year}" %></h5> 
 <h5><%= @customer.address %></h5>
 
 <hr>
@@ -35,7 +34,7 @@
    <h4><span class="customer">Application details</span></h4>
    <div class="row">
    <div class="span3">
-   <strong>status</strong>
+   status
    </div>
    <div class="span3"> - <%= @customer.status %> </div>
    </div>
@@ -46,17 +45,39 @@
 <hr>
    <div class="row">
    <div class="span6 customer_left_span_properties">
+   <h4><span class="customer">Folio details</span></h4>
+   <div class="row">
+   <div class="span3">
+   Folio Number
+   </div>
+   <div class="span3"> :<% for folio in @customer.folios %><%= link_to folio.folio_number, folios_path %><% end %></div>
+   </div>
+   
+   <div class="row">
+   <div class="span3">
+   No of shares
+   </div>  
+   <div class="span3"> :<% for folio in @customer.folios %><%= link_to folio.no_of_shares, folios_path %><% end %></div>
+   </div>
+   </div>
+
+   </div>
+</hr>
+
+<hr>
+   <div class="row">
+   <div class="span6 customer_left_span_properties">
    <h4><span class="customer">customer details</span></h4>
    <div class="row">
    <div class="span3">
-    <strong>date of birth</strong>
+   date of birth
    </div>
    <div class="span3"> - <%= @customer.date_of_birth %> </div>
    </div>
 
    <div class="row">
    <div class="span3">
-   <strong>gender</strong>
+   gender
    </div>
    <div class="span3"> - <%= @customer.sex %> </div>
    </div>
@@ -66,19 +87,21 @@
    <h4><span class="customer">ID details</span></h4>
    <div class="row">
    <div class="span3">
-   <strong>PAN</strong>
+   PAN
    </div>
    <div class="span3"> : <%= @customer.PAN %> </div>
    </div>
    </div>
    <div class="span3">
-   <strong>Photo</strong>
+   Photo
    </div>  
-   <div class="span3"> : <%= image_tag @customer.photo, :size => "50x50", :crop => :fill %></div>
+   <div class="span3">  <%= image_tag @customer.photo, :size => "50x50", :crop => :fill %></div>
    </div>
 </hr>
-<br></br> 
+<br></br>
 
- <div class = "span3 offset3">
+<div class = "span3 offset3">
     <a class="btn btn-info btn-lg btn-block" href="/customers">Back</a>
  </div>
+
+

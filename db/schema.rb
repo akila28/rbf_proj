@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140304114449) do
+ActiveRecord::Schema.define(:version => 20140331062006) do
 
   create_table "customers", :force => true do |t|
     t.string   "first_name"
@@ -31,6 +31,23 @@ ActiveRecord::Schema.define(:version => 20140304114449) do
     t.integer  "user_id"
   end
 
+  create_table "dailyproducts", :force => true do |t|
+    t.date     "from_date"
+    t.date     "to_date"
+    t.integer  "no_of_days"
+    t.float    "balance"
+    t.float    "rate_of_interest"
+    t.float    "interest"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.integer  "savingsdeposit_id"
+  end
+
+  create_table "events_controllers", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "folios", :force => true do |t|
     t.datetime "folio_allocation_date"
     t.integer  "no_of_shares"
@@ -38,6 +55,11 @@ ActiveRecord::Schema.define(:version => 20140304114449) do
     t.datetime "updated_at",            :null => false
     t.integer  "customer_id"
     t.string   "folio_number"
+  end
+
+  create_table "pendings", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "savingsdeposits", :force => true do |t|
@@ -79,6 +101,7 @@ ActiveRecord::Schema.define(:version => 20140304114449) do
     t.string   "username"
     t.string   "Address"
     t.string   "mobile_number"
+    t.string   "role"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
