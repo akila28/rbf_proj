@@ -7,14 +7,13 @@ class SavingsdepositsController < ApplicationController
   end
 
   def pending
-    @savingsdeposits = Savingsdeposit.all
+  
+      @savingsdeposits = Savingsdeposit.all
   end
 
  def approve
       @savingsdeposits = Savingsdeposit.all
   end
-
-
 
   def new
       @savingsdeposit = Savingsdeposit.new
@@ -32,6 +31,7 @@ class SavingsdepositsController < ApplicationController
   end
 
  def show
+
    @savingsdeposit = Savingsdeposit.find(params[:id])
    @customer = Customer.all
     #@savingsdeposittransaction = Savingsdeposittransaction.find(params[:id])

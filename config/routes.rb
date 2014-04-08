@@ -4,11 +4,21 @@ RbfProj::Application.routes.draw do
   resources :folios
   resources :savingsdeposittransactions 
 
-  resources :savingsdeposits do
-    get :autocomplete_customer_first_name, :on => :collection
+  #resources :savingsdeposits do
+   # get :autocomplete_customer_first_name, :on => :collection
+    #put 'approve', :on => :member
 
-  end
-
+   #end
+resources :savingsdeposits do
+     member do
+         get 'pending'
+         post 'approve'
+       end
+  
+      collection do
+         get 'autocomplete_customer_first_name'
+       end
+     end
 
  resources :home
    match 'dashboard' => 'home#dashboard'
@@ -19,13 +29,11 @@ RbfProj::Application.routes.draw do
   get "home/index"
 
   get "home/show"
-  get "savingsdeposits/approve"
-  get "savingsdeposits/pending"
   get "savingsdeposits/index"
-
   get "savingsdeposits/new"
-
   get "savingsdeposits/show"
+  #get "savingsdeposits/approve"
+  get "savingsdeposits/pending"
 
   get "savingsdeposittransactions/new"
  

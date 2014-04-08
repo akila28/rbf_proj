@@ -8,14 +8,14 @@
       <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
       <span class="caret"></span></a>
        <ul class="dropdown-menu">
-        <li><% if can? :approve, @savingsdeposit %>
-  <%= link_to "Approve", savingsdeposits_approve_path(@savingsdeposit) %>
-<% end %></li>
-         <li><a href="/savingsdeposits">closed</a></li>
+
+    <%= link_to "pending", savingsdeposits_pending_path %>
+
+  <%= link_to"closed", '#' %></li>
+
         </ul>
    </div>
-
-     <div> 
+     </div>
    <br />
 
 <table cellpadding = "5px" cellspacing = "5px" width = "100%" class="table table-striped">
