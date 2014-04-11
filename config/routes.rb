@@ -22,8 +22,10 @@ resources :savingsdeposits do
 
  resources :home
    match 'dashboard' => 'home#dashboard'
-   devise_for :users, :controllers => { :registrations => 'registration'}
-
+   devise_for :users, :controllers => { :registrations => 'registration'}, :path_names => {
+    :sign_out => 'signout'
+   }
+ 
   resources :dailyproducts
   
   get "home/index"
@@ -42,8 +44,8 @@ resources :savingsdeposits do
   get "folios/show"
 
   get "dailyproducts/index"
-  
 
+  get "users/sign_out"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
