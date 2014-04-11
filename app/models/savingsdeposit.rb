@@ -33,14 +33,15 @@ before_save :set_opened_on_date
  end
 
 
-#after_create :approve
+after_create :set_approved
 
- # private
+  private
 
-#def approve
- #      self.update_attribute(:status, 'Approved') if self.status = "pending"
-#end
-
+def set_approved
+   
+    self.update_attribute(:status, 'Approved') if self.status = "pending"
+  
+end
 
   validates :customer_id, presence: true
   validates :account_type, presence: true

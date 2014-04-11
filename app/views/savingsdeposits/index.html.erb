@@ -8,9 +8,9 @@
       <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
       <span class="caret"></span></a>
        <ul class="dropdown-menu">
-
-    <%= link_to "pending", savingsdeposits_pending_path %>
-
+    <% if current_user.role == "manager"%>
+         <%= link_to 'Awaiting Approval',savingsdeposits_pending_path(@savingsdeposit)%>
+     <% end %>
   <%= link_to"closed", '#' %></li>
 
         </ul>
