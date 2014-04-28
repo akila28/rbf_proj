@@ -1,9 +1,9 @@
 class SavingsdeposittransactionsController < ApplicationController
 
-  def new
-    @savingsdeposittransaction = Savingsdeposittransaction.new
-    @savingsdeposittransaction.savingsdeposit_id = params[:id]
-  end
+   def new
+      @savingsdeposittransaction = Savingsdeposittransaction.new
+      @savingsdeposittransaction.savingsdeposit_id = params[:id]
+   end
 
   def create
     @savingsdeposittransaction = Savingsdeposittransaction.new(params[:savingsdeposittransaction])
@@ -34,7 +34,7 @@ class SavingsdeposittransactionsController < ApplicationController
   def show
        #@savingsdeposittransaction = current.savingsdeposittransaction
     @savingsdeposittransaction = Savingsdeposittransaction.find(params[:id])
-   #@customer = Customer.all
+    @customer = Customer.all
   end
  
   def destroy

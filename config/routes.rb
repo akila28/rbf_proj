@@ -1,49 +1,38 @@
 RbfProj::Application.routes.draw do
+  get "savingsdeposittransactions/index"
+  get "savingsdeposittransactions/new"
+  get "savingsdeposittransactions/create"
+  get "savingsdeposittransactions/show"
+  get "savingsdeposits/new"
+  get "savingsdeposits/create"
+  get "savingsdeposits/show"
+  get "savingsdeposits/pending"
+  get "savingsdeposits/activate"
  
-  resources :customers
-  resources :folios
-  resources :savingsdeposittransactions 
 
-  #resources :savingsdeposits do
-   # get :autocomplete_customer_first_name, :on => :collection
-    #put 'approve', :on => :member
 
-   #end
 resources :savingsdeposits do
-     member do
-         get 'pending'
-         post 'approve'
-       end
-  
-      collection do
-         get 'autocomplete_customer_first_name'
-       end
-     end
+   get :autocomplete_customer_first_name, :on => :collection
+   get :approve, :on => :member
+   put :activate, :on => :member
+end
 
- resources :home
-   match 'dashboard' => 'home#dashboard'
-   devise_for :users, :controllers => { :registrations => 'registration'}
+#match "savingsdeposits/:id/activate" => "savingsdeposits#activate", :as => "active_savingsdeposit"
+  get "folios/index"
+  resources :folios
+
+  resources :savingsdeposittransactions
 
   resources :dailyproducts
+  get "dailyproducts/show"
   
-  get "home/index"
+devise_for :users, :controllers => { :registrations =>'registration'}
+resources :customers
 
+resources :home
+match 'dashboard' => 'home#dashboard'
+  
   get "home/show"
-  get "savingsdeposits/index"
-  get "savingsdeposits/new"
-  get "savingsdeposits/show"
-  #get "savingsdeposits/approve"
-  get "savingsdeposits/pending"
-
-  get "savingsdeposittransactions/new"
- 
-  get "folios/index"
-
-  get "folios/show"
-
-  get "dailyproducts/index"
-  
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -94,12 +83,14 @@ resources :savingsdeposits do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to =>'home#index'
+  #root :to => 'customers#index'
+
+  root :to =>'home#index'
 
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-  #break if ARGV.join.include? 'assets:precompile'
 end
+

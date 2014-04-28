@@ -21,9 +21,10 @@ attr_accessible :first_name
 attr_accessible :account_type, :current_balance, :opened_on, :status, :customer_id
 
 
+
 before_save :set_default_val
   def set_default_val
-          self.status = 'Pending' unless self.status
+            self.status = 'Pending' unless self.status
   end
 
 
@@ -31,17 +32,6 @@ before_save :set_opened_on_date
  def set_opened_on_date
     self.opened_on = Date.today
  end
-
-
-after_create :set_approved
-
-  private
-
-def set_approved
-   
-    self.update_attribute(:status, 'Approved') if self.status = "pending"
-  
-end
 
   validates :customer_id, presence: true
   validates :account_type, presence: true

@@ -5,9 +5,7 @@ def new
   @customer = Customer.new
   @folio = @customer.folios.build
   @savingsdeposit = @customer.savingsdeposits.build
-
-
- end
+end
 
  def create
   @customer = Customer.new(params[:customer])

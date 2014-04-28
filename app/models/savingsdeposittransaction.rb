@@ -1,33 +1,25 @@
 class Savingsdeposittransaction < ActiveRecord::Base
-attr_accessible :comments, :particulars, :status, :transaction_amount, :transaction_date, :transaction_mode, :transaction_type, :savingsdeposit_id
-
-attr_accessor :current_balance
-
-attr_accessible :current_balance 
-
 belongs_to :savingsdeposit
-
 after_save :calculate_current_balance
 
 
     def calculate_current_balance
-
-       if self.transaction_mode =='Credit'
-
+      if self.transaction_mode =='Credit'
          savingsdeposit.current_balance += self.transaction_amount
-
        elsif self.transaction_mode =='Debit'
-
          savingsdeposit.current_balance -= self.transaction_amount
-      
        else
            :blank
-
-       end
+        end
          savingsdeposit.save
     end
 
-  
+
+attr_accessor :current_balance
+attr_accessible :current_balance 
+
+  attr_accessible :comments, :particulars, :status, :transaction_amount, :transaction_date, :transaction_mode, :transaction_type, :savingsdeposit_id
+
    before_save :set_default_val
      def set_default_val
       self.status = 'Pending' unless self.status
@@ -44,7 +36,5 @@ after_save :calculate_current_balance
   validates :transaction_type, presence: true
 
   validates :transaction_amount, presence: true
-
-
 
 end
