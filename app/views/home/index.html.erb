@@ -3,10 +3,7 @@
 #footer {display:none;}
 </style>
 
-<h5><div class="jumbotron">
-
 <% if user_signed_in? %>
-
 <br></br>
 <h2><%= link_to "Click here to list all customers", customers_path%></h2>
 <br><br/>
@@ -15,11 +12,64 @@
 
 <% else %>
 <div class="offset3 span6">
-<h2 class="sign_in_header">Ruby Benefit Fund</h2>
-<br> </br>
-<br><%= link_to "Sign In", new_user_session_path, :method => :get %></br>
-<br><%= link_to "Sign up", new_user_registration_path, :method => :get %></br>
+<h1 class="sign_in_header">Ruby Benefit Fund</h1>
+<%= link_to "Sign In", new_user_session_path, :method => :get, :class => "btn" %>
+<%= link_to "Sign up", new_user_registration_path, :method => :get, :class => "btn" %>
+</div>
+<% end %>
+<br /><br /><br /><br />
+<br /><br />
+<script>
+$(function(){
+  $('#myCarousel').carousel();
+});
+</script>
+
+
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <%= image_tag 'hand.jpg',:width => "900",:height=> "200" %>
+      <div class="carousel-caption">
+        <h3>Ruby benefit fund </h3>
+        <p>You need to sign in or sign up </p>
+      </div>
+    </div>
+    ...
+      <div class="item">
+      <%= image_tag 'stock-photo.jpg',:width => "800",:height=> "200" %>
+      <div class="carousel-caption">
+        <h3>Ruby benefit fund </h3>
+        <p>Add customer </p>
+      </div>
+    </div>
+
+  <div class="item">
+      <%= image_tag 'icoin.jpg',:width => "500",:height=> "900" %>
+      <div class="carousel-caption">
+        <h3>Ruby benefit fund </h3>
+        <p>can do savingsdeposit transaction</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
 </div>
 
-<% end %>
-</div></h5>
+
+

@@ -13,16 +13,11 @@
   <% end %>
   </ul>
  <% end %>
-
- <%= f.hidden_field :customer_id, :id => "real_customer_id" %>
- <%= f.label :customer_name %><%= autocomplete_field_tag 'throwaway_customer', '',
-          autocomplete_customer_first_name_savingsdeposits_path,
-          :size => 75, :id_element => '#real_customer_id' %> <br />
  
  
- <%= f.label :current_balance %><div class="controls"><%= f.text_field :current_balance %>
+ <%= f.label :current_balance %><div class="controls"><%= f.text_field :current_balance, :readonly => true %>
  
-<%= f.label :opened_on %><abbr title = "required">*</abbr></label>
+<%= f.label :opened_on %></label>
  <%= f.text_field :opened_on, :readonly => true, :value => @savingsdeposit.opened_on %>
 
  <%= f.label :account_type %><div class="controls">

@@ -1,6 +1,8 @@
 <br />
 <h1><%= link_to "Customers", customers_path %></h1>  
 <br />
+
+ 
 <div class="jumbotron">
    <div class = "span6 offset6">
     <div class="btn-group">
@@ -34,9 +36,9 @@
    <h4><span class="customer">Application details</span></h4>
    <div class="row">
    <div class="span3">
-   status
+    <h5>STATUS</h5>
    </div>
-   <div class="span3"> - <%= @customer.status %> </div>
+  <h5><div class="span3"> - <%= @customer.status %> </div></h5>
    </div>
    </div>
    </div>
@@ -48,16 +50,16 @@
    <h4><span class="customer">Folio details</span></h4>
    <div class="row">
    <div class="span3">
-   Folio Number
+   <h5>FOLIO NUMBER</h5>
    </div>
-   <div class="span3"> :<% for folio in @customer.folios %><%= link_to folio.folio_number, folios_path %><% end %></div>
+   <h5><div class="span3"> :<% for folio in @customer.folios %><%= link_to folio.folio_number, folios_path %><% end %></div></h5>
    </div>
    
    <div class="row">
    <div class="span3">
-   No of shares
+   <h5>NUMBER OF SHARES</h5>
    </div>  
-   <div class="span3"> :<% for folio in @customer.folios %><%= link_to folio.no_of_shares, folios_path %><% end %></div>
+   <h5><div class="span3"> :<% for folio in @customer.folios %><%= link_to folio.no_of_shares, folios_path %><% end %></div></h5>
    </div>
    </div>
 
@@ -70,16 +72,16 @@
    <h4><span class="customer">customer details</span></h4>
    <div class="row">
    <div class="span3">
-   date of birth
+   <h5>DATE OF BIRTH</h5>
    </div>
-   <div class="span3"> - <%= @customer.date_of_birth %> </div>
+   <h5><div class="span3"> - <%= @customer.date_of_birth %> </div></h5>
    </div>
 
    <div class="row">
    <div class="span3">
-   gender
+   <h5>GENDER</h5>
    </div>
-   <div class="span3"> - <%= @customer.sex %> </div>
+   <h5><div class="span3"> - <%= @customer.sex %> </div></h5>
    </div>
    </div>
   
@@ -87,13 +89,13 @@
    <h4><span class="customer">ID details</span></h4>
    <div class="row">
    <div class="span3">
-   PAN
+   <h5>PAN</h5>
    </div>
-   <div class="span3"> : <%= @customer.PAN %> </div>
+   <h5><div class="span3"> : <%= @customer.PAN %> </div></h5>
    </div>
    </div>
    <div class="span3">
-   Photo
+  <h5> PHOTO</h5>
    </div>  
    <div class="span3">  <%= image_tag @customer.photo, :size => "50x50", :crop => :fill %></div>
    </div>

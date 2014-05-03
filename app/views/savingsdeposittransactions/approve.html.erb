@@ -1,19 +1,13 @@
 <h1><span class="savingsdeposit">Savingsdeposit details</span></h1><br /><br />
-
 <div class="row">
  <div class="span6 offset6 action_bar">
   <div>
-   <%= link_to "Edit transaction", edit_savingsdeposit_path,class: "btn-primary btn" %>
-
-<% if @savingsdeposit.status == 'approved' %>
-   <%= link_to "Add transaction", new_savingsdeposittransaction_path(:id=>@savingsdeposit.id),class: "btn-primary btn" %>
-<% end %>
- </div>
- </div>
-</div>
-   
-
-   <h5><%= "#{@savingsdeposit.customer.first_name} #{@savingsdeposit.customer.last_name}               #{@savingsdeposit.customer.code}" %></h5>
+  <%= link_to "Edit transaction", edit_savingsdeposit_path(:id => @savingsdeposit.id),class: "btn-primary btn" %>
+  <%= link_to "Add transaction", new_savingsdeposittransaction_path(:id => @savingsdeposit.id),class: "btn-primary btn" %>
+  </div>
+ </div></div>
+ 
+<h5><%= "#{@savingsdeposit.customer.first_name} #{@savingsdeposit.customer.last_name}               #{@savingsdeposit.customer.code}" %></h5>
 
 <table cellpadding = "5px" cellspacing = "5px" width = "100%" class="table table-striped">
 <tr>
@@ -31,11 +25,7 @@
 </tr>
 </table>
 
-<h1>Transaction History</h1>
-<div class="row">
-   <div class="span6 offset6 action_bar">
-  <%= link_to 'Pending Transaction',savingsdeposittransactions_pending_path(@savingsdeposittransaction),class: "btn-primary btn"%><br /><br />
-</div></div>
+<h1>Transaction History</h1><br />
 <table cellpadding = "5px" cellspacing = "5px" width = "100%" class="table table-striped">
 <tr>
       <th>transaction date</th>
@@ -56,6 +46,11 @@
 </tr>
 <% end %>
 </table>
+
+
+  <%= form_for @savingsdeposit, url: activate_savingsdeposit_path(@savingsdeposit), :html => { :method => :put } do |f| %>
+  <%= f.submit "approve record", class: "btn btn-danger"  %>
+   <% end %>
 
 <div align = "right">
 <a class="btn btn-inverse" href="/dailyproducts">Daily Product</a>

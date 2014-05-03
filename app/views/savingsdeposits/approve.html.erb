@@ -3,7 +3,11 @@
  <div class="span6 offset6 action_bar">
   <div>
   <%= link_to "Edit transaction", edit_savingsdeposit_path(:id => @savingsdeposit.id),class: "btn-primary btn" %>
-  <%= link_to "Add transaction", new_savingsdeposittransaction_path(:id => @savingsdeposit.id),class: "btn-primary btn" %>
+  <%= link_to "Add transaction", new_savingsdeposittransaction_path(:id => @savingsdeposit.id),class: "btn-primary btn" %><br /><br />
+
+  <%= form_for @savingsdeposit, url: activate_savingsdeposit_path(@savingsdeposit), :html => { :method => :put } do |f| %>
+  <%= f.submit "approve savingsdeposit", class: "btn btn-danger"  %>
+   <% end %>
   </div>
  </div></div>
  
@@ -48,9 +52,6 @@
 </table>
 
 
-  <%= form_for @savingsdeposit, url: activate_savingsdeposit_path(@savingsdeposit), :html => { :method => :put } do |f| %>
-  <%= f.submit "approve record", class: "btn btn-danger"  %>
-   <% end %>
 
 <div align = "right">
 <a class="btn btn-inverse" href="/dailyproducts">Daily Product</a>

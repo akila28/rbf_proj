@@ -1,46 +1,64 @@
 class SavingsdeposittransactionsController < ApplicationController
 
-   def new
-      @savingsdeposittransaction = Savingsdeposittransaction.new
-      @savingsdeposittransaction.savingsdeposit_id = params[:id]
-   end
+ def index
+   @savingsdeposittransactions = Savingsdeposittransaction.all
+  end
 
-  def create
+ def new
+   @savingsdeposittransaction = Savingsdeposittransaction.new
+   @savingsdeposittransaction.savingsdeposit_id = params[:id]
+ end
+
+ def pending
+   @savingsdeposittransaction = Savingsdeposittransaction.all
+ end
+
+ def approve
+   @savingsdeposittransaction = Savingsdeposittransaction.find(params[:id])
+ end
+
+ def create
     @savingsdeposittransaction = Savingsdeposittransaction.new(params[:savingsdeposittransaction])
      if @savingsdeposittransaction.save
-        flash[:success] = "Welcome!"
+        flash[:success] = "Savingsdeposittransaction added!"
         redirect_to savingsdeposits_path
       else
         flash[:alert] = "savingsdeposittransaction not added"
         render 'new'
-      end    
-   end
+     end    
+ end
 
-  def edit
-    @savingsdeposittransaction = Savingsdeposittransaction.find(params[:id])
-  end
+ def edit
+   @savingsdeposittransaction = Savingsdeposittransaction.find(params[:id])
+ end
 
-  def update
-    @savingsdeposittransaction = Savingsdeposittransaction.find(params[:id])
+ def update
+   @savingsdeposittransaction = Savingsdeposittransaction.find(params[:id])
      if @savingsdeposittransaction.update_attributes(params[:savingsdeposittransaction])
         flash[:success] = "updated successfully"
         redirect_to savingsdeposittransaction_path(@savingsdeposittransaction)
        else
         flash[:alert] = "failed"
         render 'edit'
-        end
-      end
+     end
+ end
 
-  def show
+ def show
        #@savingsdeposittransaction = current.savingsdeposittransaction
-    @savingsdeposittransaction = Savingsdeposittransaction.find(params[:id])
-    @customer = Customer.all
-  end
+   @savingsdeposittransaction = Savingsdeposittransaction.find(params[:id])
+   @customer = Customer.all
+ end
  
-  def destroy
+ def destroy
     @savingsdeposittransaction = Savingsdeposittransaction.find(params[:id])
     @savingsdeposittransaction.destroy
      flash[:notice] = "savingsdeposittransaction has been deleted"
      redirect_to savingsdeposittransaction_path
   end
+
+def activate
+  @savingsdeposittransaction = Savingsdeposittransaction.find(params[:id])
+  @savingsdeposittransaction.update_attributes!(:status => 'approved')
+  redirect_to savingsdeposittransaction_path(@savingsdeposittransaction)
+  end 
 end
